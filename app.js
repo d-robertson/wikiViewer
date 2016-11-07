@@ -5,16 +5,14 @@ angular.module('wikiApp', [])
 
     var req = {
       url: 'https://en.wikipedia.org/w/api.php',
-      method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': 'https://d-robertson.github.io'
-      },
+      method: 'JSONP',
       params: {
         action: 'opensearch',
         search: $scope.search,
         limit: 10,
         namespace: 0,
         format: 'json',
+        callback: 'JSON_CALLBACK'
       }
     }
 
