@@ -6,6 +6,9 @@ angular.module('wikiApp', [])
     var req = {
       url: 'https://en.wikipedia.org/w/api.php',
       method: 'GET',
+      headers: {
+        'Access-Control-Allow-Origin': 'https://d-robertson.github.io'
+      }
       params: {
         action: 'opensearch',
         search: $scope.search,
