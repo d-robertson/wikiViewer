@@ -8,7 +8,7 @@ angular.module('wikiApp', [])
       method: 'GET',
       headers: {
         'Access-Control-Allow-Origin': 'https://d-robertson.github.io'
-      }
+      },
       params: {
         action: 'opensearch',
         search: $scope.search,
