@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="styles.css">
 
     <!-- jQuery -->
@@ -21,8 +23,23 @@
      <script src="app.js"></script>
   </head>
   <body ng-app="wikiApp">
-    <div class="container" ng-controller="wikiCtrl">
-      <button ng-click="wikiSearch()">Search</button>
+    <div class="container text-center" ng-controller="wikiCtrl">
+      <div class="{{success}}">
+        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><button class="btn btn-success">Click To See A Random Article</button></a>
+      </div>
+      <div class="or">
+        <h3>OR</h3>
+      </div>
+      <div class="formDiv">
+        <form ng-submit="wikiSearch()" class="text-center">
+          <input class="search text-center" ng-model="search" placeholder="Search" type="search" ng-change="clearAll()">  
+        </form>
+      </div>
+      <div class="well repeatDiv success" ng-repeat="obj in res track by $index">
+        <h3>{{obj.title}}</h3>
+        <h5>{{obj.description}}</h5>
+        <a href={{obj.link}} target="_blank">see page</a>
+      </div>
     </div>
   </body>
 </html>
